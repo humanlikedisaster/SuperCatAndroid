@@ -6,7 +6,7 @@ package com.news.revolutionary.catloverproject;
 
 public class Cat {
     public Man owner;
-    public int age;
+    public int ageLevel;
     public int loveLevel;
 
     public void goAway()

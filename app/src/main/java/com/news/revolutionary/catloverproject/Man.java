@@ -10,6 +10,8 @@ public class Man {
     public int intellect;
     public String name;
     public boolean isDead;
+    public Dog pet1;
+    public Pet pet2;
 
     //Человек без кота
     public Man(int newAge, String newName)
@@ -28,6 +30,19 @@ public class Man {
         name = newName;
         isDead = false;
     }
+    public Man(Dog dog, int newAge, String newName)
+    {
+        pet1 = dog;
+        pet1.owner = this;
+        age = newAge;
+        name = newName;
+    }
+    public Man(Pet pet, int newAge)
+    {
+        pet2 = pet;
+        pet2.owner = this;
+        age = newAge;
+    }
 
     //Пробует послать кота гулять
     public void tryThrowOutPet()
@@ -35,6 +50,10 @@ public class Man {
         if (pet != null)
         {
             pet.goAway();
+        }
+        if (pet1 != null)
+        {
+            pet1.goAway();
         }
     }
 
@@ -49,6 +68,7 @@ public class Man {
     public String getInfo()
     {
         String сatString = "";
+        String dogString= "";
 
         if (pet != null) {
             if (pet instanceof SuperCat) {
@@ -62,5 +82,12 @@ public class Man {
                 ", мне уже " + age + "!\n" +
                 сatString +
                 (isDead ?  "Я мертв!" : "Я жив!"+"\n");
+        if (pet1!=null){
+            dogString ="Пёс любит меня на " + pet1.loveLevel + "баллов любви\n" + dogString;
+        }
+        return "Hello, my name is"+ name+",i am"+ age +"!\n"+dogString;
+
+
     }
+
 }

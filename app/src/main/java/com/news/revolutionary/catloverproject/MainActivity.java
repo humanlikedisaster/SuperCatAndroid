@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private static Man firstMan;
     private static Man secondMan;
+    private static Man threeMan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
         Cat vaska = new Cat();
         Cat murzik = new SuperCat();
+        Dog dog = new Dog();
+        Pet pet = new Pet();
+
 
         //Задайте параметры сами
         //Попробуйте сделать кота Ваську - принадлежащему второму человеку
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         //реализацию классов Cat, SuperCat, Man
         firstMan = new Man(murzik, 21, "Имя первого человека");
         secondMan = new Man(23, "Имя второго человека");
+        threeMan = new Man(21,"Имя третього человека");
 
         updateText();
     }
@@ -35,13 +40,14 @@ public class MainActivity extends AppCompatActivity {
         //Ищет нужный нам компонент, что отображает текст на экране.
         TextView textView = (TextView) findViewById(R.id.hello_world);
         //Задает необходимое значение
-        textView.setText(firstMan.getInfo() + "\n" + secondMan.getInfo());
+        textView.setText(firstMan.getInfo() + "\n" + secondMan.getInfo()+"\n"+threeMan.getInfo());
     }
 
     public void onGoAwayButtonClicked(View view)
     {
         firstMan.tryThrowOutPet();
         secondMan.tryThrowOutPet();
+        threeMan.tryThrowOutPet();
         updateText();
     }
 }

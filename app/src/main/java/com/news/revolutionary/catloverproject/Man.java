@@ -77,15 +77,15 @@ public class Man {
             }
             сatString = "Кот любит меня на " + pet.loveLevel + "баллов любви\n" + сatString;
         }
-
-        return "Привет, меня зовут "+ name +
-                ", мне уже " + age + "!\n" +
-                сatString +
-                (isDead ?  "Я мертв!" : "Я жив!"+"\n");
         if (pet1!=null){
             dogString ="Пёс любит меня на " + pet1.loveLevel + "баллов любви\n" + dogString;
         }
-        return "Hello, my name is"+ name+",i am"+ age +"!\n"+dogString;
+
+        return "Привет, меня зовут "+ name +
+                ", мне уже " + age + "!\n" +
+                сatString + dogString +
+                (isDead ?  "Я мертв!" : "Я жив!"+"\n");
+
 
 
     }

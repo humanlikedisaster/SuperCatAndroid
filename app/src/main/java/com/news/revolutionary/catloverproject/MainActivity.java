@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         //Сделайте так, чтобы при попытке выкинуть кота - суперкот убивал второго хозяина, не меняя
         //реализацию классов Cat, SuperCat, Man
         firstMan = new Man(murzik, 21, "Имя первого человека");
-        secondMan = new Man(23, "Имя второго человека");
+        secondMan = new Man(vaska, 23, "Имя второго человека");
+
 
         updateText();
     }

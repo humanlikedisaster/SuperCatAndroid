@@ -48,19 +48,22 @@ public class Man {
 
     public String getInfo()
     {
-        String сatString = "";
+        String catString = "";
 
         if (pet != null) {
+            catString = "Возраст кота: " + pet.ageLevel + "\n";
             if (pet instanceof SuperCat) {
+
                 SuperCat superCat = (SuperCat) pet;
-                сatString = "У меня есть суперкот и его силы: " + superCat.superpower + "\n";
+                catString = "У меня есть суперкот и его силы: " + superCat.superpower + "\n" + catString;
             }
-            сatString = "Кот любит меня на " + pet.loveLevel + "баллов любви\n" + сatString;
+            catString = "Кот любит меня на " + pet.loveLevel + "баллов любви\n" + catString;
         }
+
 
         return "Привет, меня зовут "+ name +
                 ", мне уже " + age + "!\n" +
-                сatString +
+                catString +
                 (isDead ?  "Я мертв!" : "Я жив!"+"\n");
     }
 }

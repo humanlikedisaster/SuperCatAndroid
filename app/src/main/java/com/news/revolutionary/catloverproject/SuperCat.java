@@ -10,6 +10,7 @@ public class SuperCat extends Cat {
     @Override
     public void goAway()
     {
+        ageLevel += 2;
         //Суперкот убивает хозяина только в случае, если любви больше нет, а суперсилы позволяют это сделать
         //В другом случае суперкот поступает точно также как и обычный кот.
         if (superpower > 5 && loveLevel < -100)
@@ -18,6 +19,7 @@ public class SuperCat extends Cat {
         }
         else {
             super.goAway();
+            ageLevel -= 5;
         }
     }
 }

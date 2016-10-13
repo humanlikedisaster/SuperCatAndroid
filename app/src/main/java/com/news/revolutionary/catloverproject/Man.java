@@ -5,13 +5,13 @@ package com.news.revolutionary.catloverproject;
  */
 
 public class Man {
-    public Cat pet;
+    public Pet pet;
+
     public int age;
     public int intellect;
     public String name;
     public boolean isDead;
-    public Dog pet1;
-    public Pet pet2;
+
 
     //Человек без кота
     public Man(int newAge, String newName)
@@ -22,26 +22,13 @@ public class Man {
     }
 
     //Человек с котом
-    public Man(Cat cat, int newAge, String newName)
+    public Man(Pet newPet, int newAge, String newName)
     {
-        pet = cat;
+        pet = newPet;
         pet.owner = this;
         age = newAge;
         name = newName;
         isDead = false;
-    }
-    public Man(Dog dog, int newAge, String newName)
-    {
-        pet1 = dog;
-        pet1.owner = this;
-        age = newAge;
-        name = newName;
-    }
-    public Man(Pet pet, int newAge)
-    {
-        pet2 = pet;
-        pet2.owner = this;
-        age = newAge;
     }
 
     //Пробует послать кота гулять
@@ -50,10 +37,6 @@ public class Man {
         if (pet != null)
         {
             pet.goAway();
-        }
-        if (pet1 != null)
-        {
-            pet1.goAway();
         }
     }
 
@@ -67,26 +50,28 @@ public class Man {
 
     public String getInfo()
     {
-        String сatString = "";
-        String dogString= "";
+        String petString = "";
 
         if (pet != null) {
             if (pet instanceof SuperCat) {
                 SuperCat superCat = (SuperCat) pet;
-                сatString = "У меня есть суперкот и его силы: " + superCat.superpower + "\n";
+                petString = "У меня есть суперкот и его силы: " + superCat.superpower + "\n";
             }
-            сatString = "Кот любит меня на " + pet.loveLevel + "баллов любви\n" + сatString;
+
+            petString = "Кот любит меня на " + pet.loveLevel + "баллов любви\n" + petString;
+
+            if (pet instanceof Dog) {
+                Dog dog = (Dog)pet;
+                petString = "У меня есть замечательный пес\nА его любовь ко мне: " + dog.loveLevel;
+            }
         }
-        if (pet1!=null){
-            dogString ="Пёс любит меня на " + pet1.loveLevel + "баллов любви\n" + dogString;
-        }
+
+        //Вся информация, о классе и всех параметрах должна выводится на экран (метод getInfo класса Man)
 
         return "Привет, меня зовут "+ name +
                 ", мне уже " + age + "!\n" +
-                сatString + dogString +
+                petString +
                 (isDead ?  "Я мертв!" : "Я жив!"+"\n");
-
-
 
     }
 

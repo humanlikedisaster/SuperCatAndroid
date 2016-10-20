@@ -55,7 +55,7 @@ public class Man {
                 SuperCat superCat = (SuperCat) pet;
                 сatString = "У меня есть суперкот и его силы: " + superCat.superpower + "\n";
             }
-            сatString = "Кот любит меня на " + pet.loveLevel + "баллов любви\n" + сatString;
+            сatString = "Кот любит меня на " + pet.loveLevel + " баллов любви\n" + сatString;
         }
 
         return "Привет, меня зовут "+ name +

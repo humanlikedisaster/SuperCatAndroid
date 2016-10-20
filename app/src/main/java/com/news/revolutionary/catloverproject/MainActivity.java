@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private static Man firstMan;
-    private static Man secondMan;
 	private static Man badstudent;
 	
     @Override

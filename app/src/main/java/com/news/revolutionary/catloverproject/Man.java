@@ -5,7 +5,7 @@ package com.news.revolutionary.catloverproject;
  */
 
 public class Man {
-    public Cat pet;
+    public Pet pet;
     public int age;
     public int intellect;
     public String name;
@@ -19,10 +19,10 @@ public class Man {
         isDead = false;
     }
 
-    //Человек с котом
-    public Man(Cat cat, int newAge, String newName)
+    //Человек с питомцем
+    public Man(Pet newpet, int newAge, String newName)
     {
-        pet = cat;
+        pet = newpet;
         pet.owner = this;
         age = newAge;
         name = newName;
@@ -48,22 +48,31 @@ public class Man {
 
     public String getInfo()
     {
-        String catString = "";
+        String textString = "";
+
 
         if (pet != null) {
-            catString = "Возраст кота: " + pet.ageLevel + "\n";
-            if (pet instanceof SuperCat) {
 
-                SuperCat superCat = (SuperCat) pet;
-                catString = "У меня есть суперкот и его силы: " + superCat.superpower + "\n" + catString;
+
+            if (pet instanceof Cat) {
+                textString = "Возраст кота: " + pet.ageLevel + "\n";
+                if (pet instanceof SuperCat) {
+
+                    SuperCat superCat = (SuperCat) pet;
+                    textString = "У меня есть суперкот и его силы: " + superCat.superpower + "\n" + textString;
+                }
+                textString = "Кот любит меня на " + pet.loveLevel + "баллов любви\n" + textString;
             }
-            catString = "Кот любит меня на " + pet.loveLevel + "баллов любви\n" + catString;
+
+            if (pet instanceof Dog) {
+                textString = "Возраст собаки: " + pet.ageLevel + "\n";
+                textString = "Собака любит меня на:  " + pet.loveLevel + "баллов любви\n" + textString;
+            }
+
         }
 
-
-        return "Привет, меня зовут "+ name +
-                ", мне уже " + age + "!\n" +
-                catString +
+        return "Привет, меня зовут "+ name + ", мне уже " + age + "!\n" +
+                textString +
                 (isDead ?  "Я мертв!" : "Я жив!"+"\n");
     }
 }

@@ -7,8 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private static Man firstMan;
-    private static Man secondMan;
+    private static Man thefirstMan;
+    private static Man thesecondMan;
+    private static Man thethirdMan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cat vaska = new Cat();
         Cat murzik = new SuperCat();
+        Dog muchtar = new Dog();
 
         //Задайте параметры сами
         //Попробуйте сделать кота Ваську - принадлежащему второму человеку
@@ -24,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
         //и написать создание человека заново.
         //Сделайте так, чтобы при попытке выкинуть кота - суперкот убивал второго хозяина, не меняя
         //реализацию классов Cat, SuperCat, Man
-        firstMan = new Man(murzik, 21, "Имя первого человека");
-        secondMan = new Man(vaska, 23, "Имя второго человека");
+        thefirstMan = new Man(murzik, 21, "Имя первого человека");
+        thesecondMan = new Man(vaska, 23, "Имя второго человека");
+        thethirdMan = new Man(muchtar, 30, "Имя третьего человека");
 
 
         updateText();
@@ -36,13 +39,14 @@ public class MainActivity extends AppCompatActivity {
         //Ищет нужный нам компонент, что отображает текст на экране.
         TextView textView = (TextView) findViewById(R.id.hello_world);
         //Задает необходимое значение
-        textView.setText(firstMan.getInfo() + "\n" + secondMan.getInfo());
+        textView.setText(thefirstMan.getInfo() + "\n" + thesecondMan.getInfo() + "\n" + thethirdMan.getInfo());
     }
 
     public void onGoAwayButtonClicked(View view)
     {
-        firstMan.tryThrowOutPet();
-        secondMan.tryThrowOutPet();
+        thefirstMan.tryThrowOutPet();
+        thesecondMan.tryThrowOutPet();
+        thethirdMan.tryThrowOutPet();
         updateText();
     }
 }
